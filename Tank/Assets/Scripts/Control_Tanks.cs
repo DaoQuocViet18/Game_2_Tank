@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof (Rigidbody))]
+[RequireComponent(typeof (AudioSource))]
 public class Control_Tanks : MonoBehaviour
 {
     [Header("Movement")]
@@ -17,7 +18,12 @@ public class Control_Tanks : MonoBehaviour
 
     [Header("Health")]
     public int health = 3;
-    public int blood = 0;
+    public int blood;
+    public HealthBar healthBar;
+
+    [Header("Sound")]
+    private AudioSource playerAudio;
+    public AudioClip hit_Shoot;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -32,7 +38,11 @@ public class Control_Tanks : MonoBehaviour
     void Start()
     {
         Player_Rb = GetComponent<Rigidbody>();
+        Player_Rb.freezeRotation = true;
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        healthBar.setMaxHealth(health);
+        blood = health;
+        playerAudio = GetComponent<AudioSource>();
     }
 
  
@@ -79,16 +89,17 @@ public class Control_Tanks : MonoBehaviour
         }
     }
 
-  
-    void destroyTank()
-    {
-        
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        blood++;
-        if (collision.gameObject.CompareTag("Bullet") && blood == health)
+        
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            blood--;
+            healthBar.setHealth(blood);
+            playerAudio.PlayOneShot(hit_Shoot);
+        }
+        
+        if (collision.gameObject.CompareTag("Bullet") && blood == 0)
         {
             Instantiate(explosionParticle, collision.transform.position, explosionParticle.transform.rotation);
             GM.Start_End();

@@ -899,6 +899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676262707}
   - component: {fileID: 676262708}
+  - component: {fileID: 676262709}
   m_Layer: 5
   m_Name: Health Bar_2
   m_TagString: Untagged
@@ -913,7 +914,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676262706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -923,7 +924,7 @@ RectTransform:
   - {fileID: 323113289}
   m_Father: {fileID: 2001007174}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -180, y: -50}
@@ -975,11 +976,24 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &676262709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676262706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2edae507b534e4ab610c620a1596e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 676262708}
 --- !u!1 &677039766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   End_Screen: {fileID: 2020133868}
-  End_Sound: {fileID: 8300000, guid: 8de056d229ec2744ca54ce7d377904a3, type: 3}
+  End_Sound: {fileID: 8300000, guid: 8914e004fca571b4aa95e94419671bb7, type: 3}
 --- !u!4 &677039768
 Transform:
   m_ObjectHideFlags: 0
@@ -1793,7 +1807,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!65 &1296307240
 BoxCollider:
@@ -1816,7 +1830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296307235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 0.9, z: -1}
+  m_LocalPosition: {x: 40, y: 0.6, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1859,6 +1873,8 @@ MonoBehaviour:
   turnSpeed: 40
   health: 3
   blood: 0
+  healthBar: {fileID: 676262709}
+  hit_Shoot: {fileID: 8300000, guid: 8de056d229ec2744ca54ce7d377904a3, type: 3}
   playerHeight: 2
   groundDrag: 2
   whatIsGround:
@@ -2001,7 +2017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483876421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.8, y: 0.9, z: 14.6}
+  m_LocalPosition: {x: 39.8, y: 0.6, z: 14.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2044,6 +2060,8 @@ MonoBehaviour:
   turnSpeed: 40
   health: 3
   blood: 0
+  healthBar: {fileID: 1739075072}
+  hit_Shoot: {fileID: 8300000, guid: 8de056d229ec2744ca54ce7d377904a3, type: 3}
   playerHeight: 2
   groundDrag: 4
   whatIsGround:
@@ -2160,7 +2178,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!65 &1483876427
 BoxCollider:
@@ -2476,6 +2494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1739075070}
   - component: {fileID: 1739075071}
+  - component: {fileID: 1739075072}
   m_Layer: 5
   m_Name: Health Bar_1
   m_TagString: Untagged
@@ -2552,11 +2571,24 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1739075072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739075069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2edae507b534e4ab610c620a1596e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1739075071}
 --- !u!1 &1843255430
 GameObject:
   m_ObjectHideFlags: 0
