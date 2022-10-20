@@ -23,7 +23,7 @@ public class Bullet_fly : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player_1") || collision.gameObject.CompareTag("Player_2"))
         {
             Destroy(gameObject);
         }

@@ -103,6 +103,15 @@ public class Control_Tanks : MonoBehaviour
         {
             Instantiate(explosionParticle, collision.transform.position, explosionParticle.transform.rotation);
             GM.Start_End();
+
+            if (gameObject.CompareTag("Player_1"))
+            {
+                GM.Score(1);
+            }
+            else if (gameObject.CompareTag("Player_2"))
+            {
+                GM.Score(2);
+            }
             Destroy(gameObject);
         }
     }
