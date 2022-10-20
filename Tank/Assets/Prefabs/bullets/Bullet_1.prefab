@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2564d82edf5ed354cab3b5ce9f66e52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Deadline: 2
+  Deadline: 2.5
 --- !u!96 &-7370623302992231089
 TrailRenderer:
   serializedVersion: 2

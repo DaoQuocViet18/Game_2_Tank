@@ -10,6 +10,7 @@ public class Shoot_bullets : MonoBehaviour
     private AudioSource playerAudio;
     public AudioClip shoot_sound;
 
+    public float shoot_Force = 100;
     public float recovery_time_1 = 1;
     public float recovery_time_2 = 1;
     public float limt_time = 1.5f;
@@ -43,7 +44,7 @@ public class Shoot_bullets : MonoBehaviour
         GameObject current_bullet = Instantiate(bullet, shoot_position.position, bullet.transform.rotation);
 
         Rigidbody projectleRb = current_bullet.GetComponent<Rigidbody>();
-        projectleRb.AddForce(transform.forward * 100, ForceMode.Impulse);
+        projectleRb.AddForce(transform.forward * shoot_Force, ForceMode.Impulse);
     }
 
 }
